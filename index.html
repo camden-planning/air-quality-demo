@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.29.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.29.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<style>
+
+.legend {
+    border-radius: 3px;
+    bottom: 0px;
+    font: 10px/20px 'Calibri', Arial, Helvetica, sans-serif;
+    padding: 0px;
+    position: absolute;
+    left: 0px;
+    color: white;
+    z-index: 1;
+}
+
+    .mapboxgl-popup {
+        position: absolute;
+        border-radius: 5px;
+	filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+</style>
+
+<div id='state-legend' class='legend'>
+    <div><span style></span>Base map data &#169 OpenStreetMap contributors, Camden Council and OS Data &#169 Crown Copyright 2017. Cartography by Steer Davies Gleave 2017.</div>
+    
+    
+</div>
+// Load geocoder
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.0.1/mapbox-gl-geocoder.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.0.1/mapbox-gl-geocoder.css' type='text/css' />
+
+<div id='map'></div>
+
+
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiaGVsZW5tY2syMyIsImEiOiJjaXV5NmVpYnAwMDIxMnRxd2Z0eHYxeGY1In0.r663lniPsuEgRwBRSxPCiA';
+
+bounds = [[-0.50949097,51.287688], [0.22933960,51.686180]]
+
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/helenmck23/cj0m6x9s9008q2qjr493dst4m', //stylesheet location
+    center: [-0.15252113,51.542981], // starting position
+    zoom: 12.5, // starting zoom
+    maxBounds: bounds, //set bounding box
+    maxZoom: 20,
+    minZoom: 11,
+    legendControl: {
+    position: 'topright'
+  }
+});
+
+
+// Add geocoder
+map.addControl(new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken
+}));
+
+
+
+</script>
+
+</script>
+</body>
+</html>
